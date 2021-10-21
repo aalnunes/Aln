@@ -2,25 +2,37 @@ import requests
 import json
 cotacao = requests.get("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL")
 cotacao = cotacao.json()
+
+
 def titulo():
     print('-=-'*15, 'Conversor de Moedas', '-=-'*15)
+
+
 def menu():
     print('[1] = Listar Cotações [2] Converter Moedas')
+
+
 def moeda_codigo():
     print('[1] = USDBRL  [2] = EURBRL [3] = BTCBRL [4] = Sair')
+
+
 def dolar():
-    print(cotacao['USDBRL']['bid'])
+    print('Dolar $ '+cotacao['USDBRL']['bid'])
+
+
 def euro():
-    print(cotacao['EURBRL']['bid'])
+    print('Euro € '+cotacao['EURBRL']['bid'])
+
+
 def bitcoin():
-    print(cotacao['BTCBRL']['bid'])
+    print('Bitcoin ₿ '+cotacao['BTCBRL']['bid'])
+
+
 def moedas_cotacoes():
-    print('$ {}'.format(cotacao['USDBRL']['bid']))
-    print('€ {}'.format(cotacao['EURBRL']['bid']))
-    print('₿ {}'.format(cotacao['BTCBRL']['bid']))
-def moeda_conversao(valor_real,codigo_moeda):
-    if codigo_moeda == 'USDBRL':
-        resultado = valor_real * float(cotacao['BTCBRL']['bid'])
+    dolar()
+    euro()
+    bitcoin()
+
 
 ################################################################################################################################
 
@@ -62,11 +74,4 @@ elif user == 2:
                 print('Codigo da moeda invalido.')
 
                 break
-
-
-
-
-
-
-
 
